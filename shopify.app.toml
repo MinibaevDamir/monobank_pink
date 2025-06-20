@@ -1,6 +1,6 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
-client_id = "b87de95364fa88eb6308f3dcc0a6c937"
+client_id = "9abc85c06798b7b203bd30dd9cb4cfbe"
 name = "Monobank Intergration"
 handle = "monobank-intergration"
 application_url = "https://usable-rightly-puma.ngrok-free.app/"
