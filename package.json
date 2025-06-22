@@ -1,5 +1,5 @@
 {
-  "name": "monobank-intergration",
+  "name": "monobank-integration",
   "private": true,
   "scripts": {
     "build": "remix vite:build",
@@ -30,10 +30,13 @@
     "@remix-run/node": "^2.16.1",
     "@remix-run/react": "^2.16.1",
     "@remix-run/serve": "^2.16.1",
-    "@shopify/app-bridge-react": "^4.1.6",
-    "@shopify/polaris": "^12.0.0",
-    "@shopify/shopify-app-remix": "^3.7.0",
+    "@shopify/app-bridge-react": "^4.1.10",
+    "@shopify/polaris": "^13.9.5",
+    "@shopify/shopify-api": "^11.13.0",
+    "@shopify/shopify-app-remix": "^3.8.3",
     "@shopify/shopify-app-session-storage-prisma": "^6.0.0",
+    "google-auth-library": "^9.15.1",
+    "google-spreadsheet": "^4.1.4",
     "isbot": "^5.1.0",
     "prisma": "^6.2.1",
     "react": "^18.2.0",

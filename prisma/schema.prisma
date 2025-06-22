@@ -1,7 +1,7 @@
 
 datasource db {
   provider = "sqlite"
-  url      = "file:./dev.db"
+  url      = env("DATABASE_URL")
 }
 
 generator client {
@@ -9,30 +9,44 @@ generator client {
 }
 
 model Session {
-  id          String    @id
-  shop        String
-  state       String
-  isOnline    Boolean   @default(false)
-  scope       String?
-  expires     DateTime?
-  accessToken String
-  userId      BigInt?
+  id            String    @id
+  shop          String
+  state         String
+  isOnline      Boolean   @default(false)
+  scope         String?
+  expires       DateTime?
+  accessToken   String
+  userId        BigInt?
+
+  firstName     String?
+  lastName      String?
+  email         String?
+  accountOwner  Boolean   @default(false)
+  locale        String?
+  collaborator  Boolean   @default(false)
+  emailVerified Boolean?  @default(false)
 }
 
 model MonobankSetting {
   id        Int      @id @default(autoincrement())
-  shop      String   @unique // Домен магазину
-  apiToken  String   // Зашифрований токен Monobank
-  iv        String   // Вектор ініціалізації для шифрування
+  shop      String   @unique
+  apiToken  String?   
+  gatewayName  String?  
+  iv        String?   
+
+  activationStatus String   @default("inactive") // inactive, active, invalid_key, already_used
+  activatedKey     String?   
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
 
 model PendingPayment {
   id                Int      @id @default(autoincrement())
-  shopifyOrderId    String   @unique // GraphQL ID замовлення з Shopify
-  monobankInvoiceId String   @unique // ID рахунку з Monobank
-  monobankPageUrl   String   // Посилання на сторінку оплати
-  shop              String   // Домен магазину
+  shopifyOrderId    BigInt   @unique
+  monobankInvoiceId String   @unique
+  monobankPageUrl   String
+  shop              String
+  amount            Decimal
   createdAt         DateTime @default(now())
 }

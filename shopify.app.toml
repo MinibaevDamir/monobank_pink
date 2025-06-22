@@ -1,19 +1,19 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
 client_id = "9abc85c06798b7b203bd30dd9cb4cfbe"
-name = "Monobank Intergration"
-handle = "monobank-intergration"
-application_url = "https://monobank-intergration.fly.dev/"
+name = "way::more: Monobank"
+handle = "waymore-mono-integration"
+application_url = "https://monobank-integration.fly.dev/"
 embedded = true
 
 [build]
-include_config_on_deploy = false
+include_config_on_deploy = true
 
 [webhooks]
-api_version = "2024-04"
+api_version = "2025-04"
 
   [[webhooks.subscriptions]]
-  topics = [ "orders/create", "app/uninstalled" ]
+  topics = [ "app/uninstalled", "orders/create" ]
   uri = "/webhooks"
 
 [access_scopes]
@@ -22,9 +22,7 @@ scopes = "read_orders,write_orders"
 
 [auth]
 redirect_urls = [
-  "https://monobank-intergration.fly.dev/auth/callback",
-  "https://monobank-intergration.fly.dev/auth/shopify/callback",
-  "https://monobank-intergration.fly.dev/api/auth/callback"
+  "https://monobank-integration.fly.dev/auth/callback"
 ]
 
 [pos]
