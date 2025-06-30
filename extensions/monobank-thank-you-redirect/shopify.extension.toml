@@ -1,0 +1,19 @@
+api_version = "2025-04"
+
+[capabilities]
+api_access = true
+network_access = true
+
+[[extensions]]
+name = "Monobank Thank You Redirect"
+handle = "monobank-thank-you-redirect"
+type = "ui_extension"
+
+[extensions.capabilities]
+api_access = true
+network_access = true
+
+[[extensions.targeting]]
+module = "./src/Index.jsx"
+target = "purchase.thank-you.block.render"
+export = "thankYouBlock"

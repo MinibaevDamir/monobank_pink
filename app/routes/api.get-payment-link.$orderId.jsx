@@ -1,18 +1,31 @@
 import { json } from "@remix-run/node";
 import prisma from "../db.server";
 
+const headers = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "GET, OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type",
+};
+
+export const options = async () => {
+  return new Response(null, {
+    status: 204,
+    headers,
+  });
+};
+
 export const loader = async ({ params }) => {
   const { orderId } = params;
 
   if (!orderId) {
-    return json({ error: "Order ID is missing" }, { status: 400 });
+    return json({ error: "Order ID is missing" }, { status: 400, headers });
   }
 
   let shopifyOrderIdAsBigInt;
   try {
     shopifyOrderIdAsBigInt = BigInt(orderId);
   } catch (e) {
-    return json({ error: "Invalid Order ID format" }, { status: 400 });
+    return json({ error: "Invalid Order ID format" }, { status: 400, headers });
   }
 
   for (let i = 0; i < 5; i++) {
@@ -27,7 +40,7 @@ export const loader = async ({ params }) => {
       return json(
         { paymentUrl: payment.monobankPageUrl },
         {
-          headers: { "Access-Control-Allow-Origin": "*" },
+          headers,
         },
       );
     }
@@ -47,7 +60,7 @@ export const loader = async ({ params }) => {
     { error: "Payment link not found" },
     {
       status: 404,
-      headers: { "Access-Control-Allow-Origin": "*" },
+      headers,
     },
   );
 };

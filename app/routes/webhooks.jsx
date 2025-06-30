@@ -93,6 +93,7 @@ export const action = async ({ request }) => {
       console.log(
         `[WEBHOOK] Handling 'orders/create' for shop ${shop}. Order ID: ${payload.id}`,
       );
+
       if (payload.financial_status === "pending") {
         const targetGatewayName = settings?.gatewayName;
         if (!targetGatewayName) {
@@ -102,8 +103,10 @@ export const action = async ({ request }) => {
           break;
         }
 
-        console.log(['Gateway:'], payload.gateway, targetGatewayName)
-        if (payload.gateway !== targetGatewayName) {
+        if (
+          !payload.payment_gateway_names ||
+          payload.payment_gateway_names[0] !== targetGatewayName
+        ) {
           console.log(
             `Gateway name is different on order for shop ${shop}. Skipping.`,
           );
