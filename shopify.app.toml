@@ -1,9 +1,9 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
-client_id = "9abc85c06798b7b203bd30dd9cb4cfbe"
+client_id = "92e5f417f5235dac01be6af18e717891"
 name = "way::more: Monobank"
 handle = "waymore-mono-integration"
-application_url = "https://monobank-integration.fly.dev/"
+application_url = "https://monobank-pink.onrender.com/"
 embedded = true
 
 [build]
@@ -22,7 +22,7 @@ scopes = "read_orders,write_orders"
 
 [auth]
 redirect_urls = [
-  "https://monobank-integration.fly.dev/auth/callback"
+  "https://monobank-pink.onrender.com/auth/callback"
 ]
 
 [pos]
