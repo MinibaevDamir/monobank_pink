@@ -2,7 +2,7 @@
 
 client_id = "92e5f417f5235dac01be6af18e717891"
 name = "way::more: Monobank"
-handle = "waymore-mono-integration"
+handle = "waymore-mono-integration-pink"
 application_url = "https://monobank-pink.onrender.com/"
 embedded = true
 
