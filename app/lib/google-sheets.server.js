@@ -25,13 +25,13 @@ const doc = new GoogleSpreadsheet(process.env.GOOGLE_SHEET_ID, auth);
 
 export async function validateLicenseKey(keyToValidate) {
   try {
-    await doc.loadInfo(); 
+    await doc.loadInfo();
     const sheet = doc.sheetsByIndex[0];
     const rows = await sheet.getRows();
 
     const licenseRow = rows.find((row) => row.get("Key") === keyToValidate);
 
-    console.log(`[Google Sheeets]:`,licenseRow, rows)
+    console.log(`[Google Sheeets]:`, licenseRow, rows);
 
     if (!licenseRow) {
       console.log(

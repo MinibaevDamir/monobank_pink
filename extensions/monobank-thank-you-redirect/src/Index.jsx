@@ -30,7 +30,7 @@ function App() {
     const numericOrderId = order.id.match(/\d+/g).join("");
 
     const appBaseUrl = "https://monobank-proxy.doubletopiua433.workers.dev/";
-    const paymentLinkEndpoint = `${appBaseUrl}${numericOrderId}`;
+    const paymentLinkEndpoint = `${appBaseUrl}${numericOrderId}?domain=monobank-pink.onrender.com`;
 
     console.log(
       `[Monobank App] Order ${numericOrderId} is unpaid. Fetching payment link...`,
