@@ -22,7 +22,9 @@ scopes = "read_orders,write_orders"
 
 [auth]
 redirect_urls = [
-  "https://monobank-pink.fly.dev/auth/callback"
+  "https://monobank-pink.fly.dev/auth/callback",
+  "https://monobank-pink.fly.dev/auth/shopify/callback",
+  "https://monobank-pink.fly.dev/api/auth/callback"
 ]
 
 [pos]
